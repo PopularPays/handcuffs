@@ -30,7 +30,7 @@ namespace :handcuffs do
 
   def run_task(name)
     Rake::Task.clear # necessary to avoid tasks being loaded several times in dev mode
-    Rails.application.load_tasks 
+    Rails.application.load_tasks
     Rake::Task[name].reenable # in case you're going to invoke the same task second time.
     Rake::Task[name].invoke
   end
@@ -47,10 +47,9 @@ namespace :handcuffs do
         runnable.find_all { |m| ran?(m) }
       end
     end
- end
+  end
 
   module PhaseAccessor
     attr_accessor :handcuffs_phase
   end
-
 end
